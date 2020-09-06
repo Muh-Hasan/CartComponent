@@ -15,13 +15,13 @@ export default function Cart() {
                 <h1>Your Cart is Empty</h1>
                 <Link to='/'><button className='hvr-bounce-to-left'>shop here</button>
                 </Link>
-            </div> :  
-            <div>
-                
-                <div className='row no-gutters justify-content-center'>
-                    <CartTable />
-                </div>
-            </div>}
+            </div> :
+                <div>
+
+                    <div className='row no-gutters justify-content-center'>
+                        <CartTable />
+                    </div>
+                </div>}
         </div>
     )
 }
@@ -73,7 +73,7 @@ function Passcart({ product }) {
     );
 }
 function Payment() {
-    const { cart , clear } = useContext(Cartcontext);
+    const { cart, clear } = useContext(Cartcontext);
     const totalprice = cart.reduce((total, cart) => total + (cart.price) * cart.quantity, 0);
     const clearAll = () => {
         clear(cart)
@@ -86,10 +86,10 @@ function Payment() {
                 <p className='mb-1'>Total Payment</p>
                 <h3 className='mb-0 txt-right'>{totalprice}</h3>
                 <hr className='mb-4' />
-            </div>
-            <div className='text-center'>
-                <button className='checkout hvr-bounce-to-right'>Checkout</button>
-                <button className='clear' onClick={clearAll}>Clear</button>
+                <div className='text-center'>
+                    <button className='checkout hvr-bounce-to-right'>Checkout</button>
+                    <button className='clear' onClick={clearAll}>Clear</button>
+                </div>
             </div>
         </div>
     )
