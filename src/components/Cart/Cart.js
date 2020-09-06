@@ -8,9 +8,9 @@ export default function Cart() {
     return (
 
         <div>
-            <div className='text-center mt-5'>
+            {/* <div className='text-center mt-5'>
                     Cart Summary
-                </div>
+            </div> */}
             {cart.length <= 0 ? <div className='div-cen-empty'>
                 <h1>Your Cart is Empty</h1>
                 <Link to='/'><button className='hvr-bounce-to-left'>shop here</button>
