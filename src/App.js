@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 // css
 import './hover-min.css'
 import './App.css'
-import './bootstrap.css'
 // Cart Context
 import { Cartcontext } from './Cart/index'
 
