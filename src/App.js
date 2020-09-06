@@ -21,7 +21,7 @@ export default function App() {
         <Link to='/'>
           <span className='sp-one'>Products</span>
         </Link>
-        <Link to='/cart'>
+        <Link to='cart'>
           <span className='sp-one'>Cart({cart.length})</span>
         </Link>
       </div>
