@@ -7,16 +7,17 @@ export default function Cart() {
     const { cart } = useContext(Cartcontext);
     return (
 
-        <div className=''>
+        <div>
+            <div className='text-center mt-5'>
+                    Cart Summary
+                </div>
             {cart.length <= 0 ? <div className='div-cen-empty'>
                 <h1>Your Cart is Empty</h1>
                 <Link to='/'><button className='hvr-bounce-to-left'>shop here</button>
                 </Link>
             </div> :  
             <div>
-                <div className='text-center mt-5'>
-                    Cart Summary
-                </div>
+                
                 <div className='row no-gutters justify-content-center'>
                     <CartTable />
                 </div>
@@ -46,7 +47,6 @@ function Passcart({ product }) {
 
 
     return (
-        // <div className='dis-pro1'>
         <div className='one'>
             <div>
                 <div className='row no-gutters py-2'>
@@ -70,7 +70,6 @@ function Passcart({ product }) {
             </div>
         </div>
 
-        // </div>
     );
 }
 function Payment() {
