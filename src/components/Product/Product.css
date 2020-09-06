@@ -1,0 +1,58 @@
+.dis-pro{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.container{
+
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.body-dis-card{
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+.body-dis-card h4{
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.body-dis-card h5{
+    color: #BDBDBD;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.body-dis-card button{
+    background: transparent;
+    border:  2px solid black;
+    height: 30px;
+    outline: none;
+    width: 150px;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+.dis-div{
+    margin-left:20px;
+}
+.dis-img{
+    max-width: 300px;
+    max-height: 300px;
+    border-bottom: 7px solid #9E9E9E;
+
+}
+@media(max-width:700px){
+.dis-pro{
+    justify-content: center;
+}
+}
