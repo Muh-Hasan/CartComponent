@@ -5,16 +5,23 @@ import './Cart.css'
 export default function Cart() {
 
     return (
-        <div>
-            <CartTable />
+        <div className='container'>
+            <div>
+                <div className='text-center mt-5'>
+                    Cart Summary
+                </div>
+                <div className='row no-gutters justify-content-center'>
+                    <CartTable />
+                </div>
+            </div>
         </div>
     )
 }
 
-function Passcart({product}) {
+function Passcart({ product }) {
 
-    const { removeCart, increase, decrease } = useContext(Cartcontext);
-
+    const { cart, removeCart, increase, decrease } = useContext(Cartcontext);
+    const totalprice = cart.reduce((total, cart) => total + (cart.price) * cart.quantity, 0);
     const remove = () => {
         removeCart(product.id);
     };
@@ -33,24 +40,40 @@ function Passcart({product}) {
 
 
     return (
-        <tr>
-            <td>
-                <img src={product.src} alt={product.name} height='50px' width='50px' />
-            </td>
-            <td>
-                {product.name}
-            </td>
-
-            <td>${product.price}</td>
-
-            <td>{product.quantity}</td>
-
-            <td>
-                <button className='cart-button' onClick={increaseQtty}>+</button>
-                <button className='cart-button' onClick={decreaseQtty}>-</button>
-                <button className='cart-button' onClick={remove}>x</button>
-            </td>
-        </tr>
+        <div className='dis-pro1'>
+            <div className='col-sm-9 p-3'>
+                <div className='row no-gutters py-2'>
+                    <div className='col-sm-2 p-2'>
+                        <img className='img-fluid d-block img-display' src={product.src} alt={product.name} />
+                    </div>
+                    <div className='col-sm-4 p-2'>
+                        <h5 className='mb-1'>{product.name}</h5>
+                        <p className='mb-1'>Price: {product.price}</p>
+                    </div>
+                    <div className='col-sm-2 p-2 text-center '>
+                        <p className='mb-0'>Qty: {product.quantity}</p>
+                    </div>
+                    <div className='col-sm-4 p-2 text-right'>
+                        <button className='mb-1' onClick={increaseQtty}>+</button>
+                        <button className='mb-1' onClick={decreaseQtty}>-</button>
+                        <button className='mb-1' onClick={remove}>x</button>
+                    </div>
+                </div>
+            </div>
+            <div className='col-sm-3 p-3'>
+                <div className='card card-body'>
+                    <p className='mb-1'>Total Items</p>
+                    <h4 className=' mb-3 txt-right'>{cart.length}</h4>
+                    <p className='mb-1'>Total Payment</p>
+                    <h3 className='mb-0 txt-right'>{totalprice}</h3>
+                    <hr className='mb-4' />
+                </div>
+                <div className='text-center'>
+                    <button className='class="btn btn-primary mb-2"'>Checkout</button>
+                    <button className='btn btn-outlineprimary btn-sm'>Clear</button>
+                </div>
+            </div>
+        </div>
     );
 }
 
@@ -58,26 +81,11 @@ function Passcart({product}) {
 // cart 
 const CartTable = () => {
     const { cart } = useContext(Cartcontext);
-    const totalprice = cart.reduce((total, cart) => total + (cart.price) * cart.quantity, 0);
     return (
-        <div className='main-cart'>
-            <table >
-                <thead >
-                    <tr>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th />
-                    </tr>
-                </thead>
-                <tbody>
-                    {cart.map(item => (
-                        <Passcart key={item.id} product={item} />
-                    ))}
-                </tbody>
-            </table>
-            <h5>Total : ${totalprice}</h5>
-        </div>
+        < >
+            {cart.map(item => (
+                <Passcart key={item.id} product={item} />
+            ))}
+        </>
     );
 };

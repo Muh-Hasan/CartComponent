@@ -31,15 +31,13 @@ function Product({ product }) {
     };
     return (
       < >
-        <div className='body-dis-card'>
-            <div>
-              <img className='dis-img' src={product.src} alt={product.name} />
-            </div>
-            <div className='dis-div'>
-              <h4>{product.name}</h4>
-              <h5>${product.price}</h5>
-            </div>
-          <button className='hvr-bounce-to-right'  onClick={addcart}>Add to Cart</button>
+        <div className='card card-body'>
+              <img className='img-fluid img-dis' src={product.src} alt={product.name} />
+              <p>{product.name}</p>
+              <h3>${product.price}</h3>
+            <div className='text-right'>
+          <button className='hvr-bounce-to-right dis-card-button'  onClick={addcart}>Add to Cart</button>
+          </div>
         </div>
       </>
     );

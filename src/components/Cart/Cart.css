@@ -1,5 +1,9 @@
-.main-cart{
+
+.img-display{
+    margin: 0px auto;
+    max-height: 50px;
+}
+.dis-pro1{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }

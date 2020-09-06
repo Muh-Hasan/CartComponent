@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 // css
 import './hover-min.css'
 import './App.css'
-
+import './bootstrap.css'
 // Cart Context
 import { Cartprovider, Cartcontext } from './Cart/index'
 
@@ -10,7 +10,7 @@ import { Cartprovider, Cartcontext } from './Cart/index'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 
 // components 
-import Cart from './Cart/Cart'
+import Cart from './components/Cart/Cart'
 import ProductDisplay from './components/Product/Product'
 
 export default function App() {
