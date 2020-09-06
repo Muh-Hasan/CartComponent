@@ -37,6 +37,12 @@ export const Cartprovider = ({ children }) => {
       payload: id
     });
   }
+  function clear(cart){
+    dispatch({
+      type:'clear',
+      payload : cart
+    })
+  }
   return (
     <Cartcontext.Provider
       value={{
@@ -46,6 +52,7 @@ export const Cartprovider = ({ children }) => {
         removeCart,
         increase,
         decrease,
+        clear,
       }}
     >
       {children}

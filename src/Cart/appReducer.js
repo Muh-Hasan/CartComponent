@@ -24,6 +24,11 @@ export default (state, action) => {
           ...state,
           cart: state.cart
         };
+      case 'clear':
+        return{
+          ...state,
+          cart : []
+        }
       default:
         return state;
     }

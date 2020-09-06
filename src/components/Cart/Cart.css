@@ -1,9 +1,64 @@
 
 .img-display{
     margin: 0px auto;
-    max-height: 50px;
+    max-height: 150px;
 }
 .dis-pro1{
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
 }
+.one{
+    flex: .7;
+}
+.two{
+    flex: .3;
+}
+.btns{
+    outline: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    margin: 2px;
+    font-weight: 600;    
+}
+.checkout{
+    outline: none;
+    height: 30px;
+    width: 100px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: transparent;
+    border: 2px solid black;
+    margin: 5px;
+}
+.clear{
+    margin: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.div-cen-empty{
+    text-align: center;
+  }
+  .div-cen-empty h1{
+    color: black;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+  }
+  .div-cen-empty button{
+    cursor: pointer;
+    background: transparent;
+    height: 30px;
+    width: 100px;
+    border: 2px solid black;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: black;
+  }  

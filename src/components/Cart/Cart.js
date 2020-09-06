@@ -1,11 +1,18 @@
 import React, { useContext } from 'react'
 import { Cartcontext } from '../../Cart/index'
 import './Cart.css'
+import { Link } from 'react-router-dom'
 
 export default function Cart() {
-
+    const { cart } = useContext(Cartcontext);
     return (
-        <div className='container'>
+
+        <div className=''>
+            {cart.length <= 0 ? <div className='div-cen-empty'>
+                <h1>Your Cart is Empty</h1>
+                <Link to='/'><button className='hvr-bounce-to-left'>shop here</button>
+                </Link>
+            </div> :  
             <div>
                 <div className='text-center mt-5'>
                     Cart Summary
@@ -13,15 +20,14 @@ export default function Cart() {
                 <div className='row no-gutters justify-content-center'>
                     <CartTable />
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }
 
 function Passcart({ product }) {
 
-    const { cart, removeCart, increase, decrease } = useContext(Cartcontext);
-    const totalprice = cart.reduce((total, cart) => total + (cart.price) * cart.quantity, 0);
+    const { removeCart, increase, decrease } = useContext(Cartcontext);
     const remove = () => {
         removeCart(product.id);
     };
@@ -40,8 +46,9 @@ function Passcart({ product }) {
 
 
     return (
-        <div className='dis-pro1'>
-            <div className='col-sm-9 p-3'>
+        // <div className='dis-pro1'>
+        <div className='one'>
+            <div>
                 <div className='row no-gutters py-2'>
                     <div className='col-sm-2 p-2'>
                         <img className='img-fluid d-block img-display' src={product.src} alt={product.name} />
@@ -52,40 +59,52 @@ function Passcart({ product }) {
                     </div>
                     <div className='col-sm-2 p-2 text-center '>
                         <p className='mb-0'>Qty: {product.quantity}</p>
+                        <p className='mb-0'>SubTotal: {product.quantity * product.price}</p>
                     </div>
                     <div className='col-sm-4 p-2 text-right'>
-                        <button className='mb-1' onClick={increaseQtty}>+</button>
-                        <button className='mb-1' onClick={decreaseQtty}>-</button>
-                        <button className='mb-1' onClick={remove}>x</button>
+                        <button style={{ background: 'black', color: 'white' }} className='mb-1 btns' onClick={increaseQtty}>+</button>
+                        <button style={{ background: 'black', color: 'white' }} className='mb-1 btns' onClick={decreaseQtty}>-</button>
+                        <button style={{ background: 'red', color: 'white' }} className='mb-1 btns' onClick={remove}>x</button>
                     </div>
-                </div>
-            </div>
-            <div className='col-sm-3 p-3'>
-                <div className='card card-body'>
-                    <p className='mb-1'>Total Items</p>
-                    <h4 className=' mb-3 txt-right'>{cart.length}</h4>
-                    <p className='mb-1'>Total Payment</p>
-                    <h3 className='mb-0 txt-right'>{totalprice}</h3>
-                    <hr className='mb-4' />
-                </div>
-                <div className='text-center'>
-                    <button className='class="btn btn-primary mb-2"'>Checkout</button>
-                    <button className='btn btn-outlineprimary btn-sm'>Clear</button>
                 </div>
             </div>
         </div>
+
+        // </div>
     );
 }
-
+function Payment() {
+    const { cart , clear } = useContext(Cartcontext);
+    const totalprice = cart.reduce((total, cart) => total + (cart.price) * cart.quantity, 0);
+    const clearAll = () => {
+        clear(cart)
+    }
+    return (
+        <div className='two'>
+            <div className='card card-body'>
+                <p className='mb-1'>Total Items</p>
+                <h4 className=' mb-3 txt-right'>{cart.length}</h4>
+                <p className='mb-1'>Total Payment</p>
+                <h3 className='mb-0 txt-right'>{totalprice}</h3>
+                <hr className='mb-4' />
+            </div>
+            <div className='text-center'>
+                <button className='checkout hvr-bounce-to-right'>Checkout</button>
+                <button className='clear' onClick={clearAll}>Clear</button>
+            </div>
+        </div>
+    )
+}
 
 // cart 
 const CartTable = () => {
     const { cart } = useContext(Cartcontext);
     return (
-        < >
+        <div className='dis-pro1'>
             {cart.map(item => (
                 <Passcart key={item.id} product={item} />
             ))}
-        </>
+            <Payment />
+        </div>
     );
 };
