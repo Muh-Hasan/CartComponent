@@ -3,7 +3,7 @@ import Appreducer from "./appReducer";
 
 const productstate = {
   cart: []
-};
+}
 
 export const Cartcontext = createContext(productstate);
 
