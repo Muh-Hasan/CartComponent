@@ -3,32 +3,32 @@ export default (state, action) => {
     case "addToCart":
       return {
         ...state,
-        cart: [action.payload.product, ...state.cart]
+        cart: [action.payload.product, ...state.cart],
       };
     case "remove":
       return {
         ...state,
-        cart: state.cart.filter(item => item.id !== action.payload)
+        cart: state.cart.filter((item) => item.id !== action.payload),
       };
     case "increase":
-      state.cart[state.cart.findIndex(item => item.id === action.payload)]
+      state.cart[state.cart.findIndex((item) => item.id === action.payload)]
         .quantity++;
       return {
         ...state,
-        cart: state.cart
+        cart: state.cart,
       };
     case "decrease":
-      state.cart[state.cart.findIndex(item => item.id === action.payload)]
+      state.cart[state.cart.findIndex((item) => item.id === action.payload)]
         .quantity--;
       return {
         ...state,
-        cart: state.cart
+        cart: state.cart,
       };
-    case 'clear':
+    case "clear":
       return {
         ...state,
-        cart: []
-      }
+        cart: [],
+      };
     default:
       return state;
   }

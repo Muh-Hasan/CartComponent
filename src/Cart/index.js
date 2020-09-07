@@ -2,8 +2,8 @@ import React, { createContext, useReducer } from "react";
 import Appreducer from "./appReducer";
 
 const productstate = {
-  cart: []
-}
+  cart: [],
+};
 
 export const Cartcontext = createContext(productstate);
 
@@ -13,35 +13,35 @@ export const Cartprovider = ({ children }) => {
   function addToCart(product) {
     dispatch({
       type: "addToCart",
-      payload: product
+      payload: product,
     });
   }
 
   function removeCart(id) {
     dispatch({
       type: "remove",
-      payload: id
+      payload: id,
     });
   }
 
   function increase(id) {
     dispatch({
       type: "increase",
-      payload: id
+      payload: id,
     });
   }
 
   function decrease(id) {
     dispatch({
       type: "decrease",
-      payload: id
+      payload: id,
     });
   }
   function clear(cart) {
     dispatch({
-      type: 'clear',
-      payload: cart
-    })
+      type: "clear",
+      payload: cart,
+    });
   }
   return (
     <Cartcontext.Provider
