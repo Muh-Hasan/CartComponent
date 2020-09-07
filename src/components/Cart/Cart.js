@@ -8,9 +8,6 @@ export default function Cart() {
     return (
 
         <div>
-            {/* <div className='text-center mt-5'>
-                    Cart Summary
-            </div> */}
             {cart.length <= 0 ? <div className='div-cen-empty'>
                 <h1>Your Cart is Empty</h1>
                 <Link to='/'><button className='hvr-bounce-to-left'>shop here</button>
@@ -27,16 +24,13 @@ export default function Cart() {
 }
 
 function Passcart({ product }) {
-
     const { removeCart, increase, decrease } = useContext(Cartcontext);
     const remove = () => {
         removeCart(product.id);
     };
-
     const increaseQtty = () => {
         increase(product.id);
     };
-
     const decreaseQtty = () => {
         if (product.quantity <= 1) {
             remove();
@@ -44,8 +38,6 @@ function Passcart({ product }) {
             decrease(product.id);
         }
     };
-
-
     return (
         <div className='one'>
             <div>
@@ -72,6 +64,7 @@ function Passcart({ product }) {
 
     );
 }
+
 function Payment() {
     const { cart, clear } = useContext(Cartcontext);
     const totalprice = cart.reduce((total, cart) => total + (cart.price) * cart.quantity, 0);
@@ -95,7 +88,6 @@ function Payment() {
     )
 }
 
-// cart 
 const CartTable = () => {
     const { cart } = useContext(Cartcontext);
     return (

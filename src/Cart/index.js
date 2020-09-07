@@ -37,10 +37,10 @@ export const Cartprovider = ({ children }) => {
       payload: id
     });
   }
-  function clear(cart){
+  function clear(cart) {
     dispatch({
-      type:'clear',
-      payload : cart
+      type: 'clear',
+      payload: cart
     })
   }
   return (

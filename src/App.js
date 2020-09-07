@@ -1,14 +1,8 @@
 import React, { useContext } from 'react';
-// css
 import './hover-min.css'
 import './App.css'
-// Cart Context
 import { Cartcontext } from './Cart/index'
-
-// Router
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
-
-// components 
 import Cart from './components/Cart/Cart'
 import ProductDisplay from './components/Product/Product'
 
